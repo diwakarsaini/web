@@ -15,6 +15,22 @@
   	<description>When user click register button, Control comes here</description>
   	<servlet-class>com.topjobs.web.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<display-name>LoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.topjobs.web.LoginServlet</servlet-class>
+  </servlet>
+    
+  <servlet>
+  <servlet-name>Login</servlet-name>
+  <jsp-file>/WEB-INF/views/Login.jsp</jsp-file>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>LoginFailed</servlet-name>
+  <jsp-file>/WEB-INF/views/LoginFailed.jsp</jsp-file>
+  </servlet>
   
   <servlet-mapping>
   <servlet-name>homepage</servlet-name>
@@ -25,6 +41,63 @@
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+  <servlet-name>Login</servlet-name>
+  <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
   
+  <servlet-mapping>
+  <servlet-name>LoginFailed</servlet-name>
+  <url-pattern>/LoginFailed</url-pattern>
+  </servlet-mapping>
+  
+  
+  <security-constraint>
+  <web-resource-collection>
+    <web-resource-name>Employer</web-resource-name>
+    <description>Matches Employer pages</description>
+    <url-pattern>/emp/*</url-pattern>
+    <url-pattern>/LoginServlet</url-pattern>
+     <http-method>GET</http-method>  
+     <http-method>POST</http-method>
+  </web-resource-collection>
+  <auth-constraint>
+     <role-name>Employer</role-name>
+  </auth-constraint>
+</security-constraint>
+
+
+ <security-constraint>
+<web-resource-collection>
+    <web-resource-name>JobSeeker</web-resource-name>
+    <description>Matches JobSeeker pages</description>
+    <url-pattern>/job/*</url-pattern>
+   <url-pattern>/LoginServlet</url-pattern>
+     <http-method>GET</http-method>  
+     <http-method>POST</http-method>
+  </web-resource-collection>
+  <auth-constraint>
+     <role-name>JobSeeker</role-name>
+  </auth-constraint>
+</security-constraint>
+
+<login-config>
+		<auth-method>FORM</auth-method>
+		<realm-name>jdbcRealm</realm-name>
+		<form-login-config>
+			<form-login-page>/Login</form-login-page>
+			<form-error-page>/LoginFailed</form-error-page>
+		</form-login-config>
+</login-config>
+  
+   <security-role> <role-name>Employer</role-name> </security-role>
+  <security-role> <role-name>JobSeeker</role-name> </security-role>
+  
+
   
 </web-app>

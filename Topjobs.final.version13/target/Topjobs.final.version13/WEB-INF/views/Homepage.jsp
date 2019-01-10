@@ -18,20 +18,14 @@ Enter First name:<input type="text" name="fName" placeholder="Enter first name h
 Enter Last name:<input type="text" name="lName" placeholder="Enter last name here"><br>
 Enter Email:<input type="text" name="email" placeholder="Enter email here"><br>
 Enter password:<input type="password" name="pswd" placeholder="Enter password here"><br>
-Join as:<input type="radio" name="role" value="Employeer">Employeer
-	 <input type="radio" name="role" value="Job Seeker">Job Seeker
+Join as:<input type="radio" name="role" value="Employer">Employer
+	 <input type="radio" name="role" value="JobSeeker">JobSeeker
 	 <input type="radio" name="role" value="Admin">Admin
 	 <br>
 	 <input type="submit" name="submit" value="Register">
 </form>
 
+Already have an Account?<a href="LoginServlet">Sign In</a>
 
-<h3>Login Form</h3>
-<form action="loginform">
-Enter Email:<input type="text" name="email" placeholder="Enter email here"><br>
-Enter password:<input type="password" name="pswd" placeholder="Enter password here"><br>
-
-	<input type="submit" value="Login">
-</form>
 </body>
 </html>

@@ -27,6 +27,7 @@ public class RegisterServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		Enumeration<String> pNames =  request.getParameterNames();
 		response.getWriter().append("Served at: 2").append(request.getContextPath());
@@ -37,7 +38,8 @@ public class RegisterServlet extends HttpServlet {
 		}
 		createConnection(request);
 		//		request.getRequestDispatcher("RegistrationSuccessful").forward(request, response);
-
+		
+		out.println("<a href=\"LoginServlet\">Click to Login</a>");
 
 
 	}
