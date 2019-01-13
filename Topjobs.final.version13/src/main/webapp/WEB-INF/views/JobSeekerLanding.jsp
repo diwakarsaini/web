@@ -7,7 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>YOU ARE A JOB SEEKER! </p>
-<a href="Logout">LogOut</a>
+<p>YOU ARE A JOB SEEKER! </p> <a href="Logout">LogOut</a>
+
+<p>Upload resume:</p>
+<a href="Resume">Upload</a>
+
 </body>
 </html>

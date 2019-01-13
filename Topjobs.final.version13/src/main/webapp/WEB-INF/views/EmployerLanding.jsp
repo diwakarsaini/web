@@ -8,7 +8,14 @@
 </head>
 <body>
 <p>YOU ARE AN EMPLOYER! </p>
+<%= session.getAttribute("test") %>
+<%= session.getAttribute("remoteUser") %>
+<br>
 <a href="Logout">LogOut</a>
+<br>
+
+
+<a href="NewJob">Create a new JOB?</a>
 
 
 

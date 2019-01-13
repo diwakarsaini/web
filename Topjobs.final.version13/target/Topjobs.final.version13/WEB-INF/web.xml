@@ -32,6 +32,40 @@
   <jsp-file>/WEB-INF/views/LoginFailed.jsp</jsp-file>
   </servlet>
   
+  <servlet>
+  <servlet-name>Logout</servlet-name>
+  <jsp-file>/WEB-INF/views/Logout.jsp</jsp-file>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>EmployerLanding</servlet-name>
+  <jsp-file>/WEB-INF/views/EmployerLanding.jsp</jsp-file>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>JobSeekerLanding</servlet-name>
+  <jsp-file>/WEB-INF/views/JobSeekerLanding.jsp</jsp-file>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  <servlet-name>JobSeekerLanding</servlet-name>
+  <url-pattern>/JobSeekerLanding</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet-mapping>
+  <servlet-name>EmployerLanding</servlet-name>
+  <url-pattern>/EmployerLanding</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>Logout</servlet-name>
+  <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  
+  
   <servlet-mapping>
   <servlet-name>homepage</servlet-name>
   <url-pattern>/Homepage</url-pattern>
