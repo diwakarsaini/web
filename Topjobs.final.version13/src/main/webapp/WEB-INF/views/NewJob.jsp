@@ -7,7 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="JobServlet">																<!job servlet> 
+	<% if(request.getAttribute("message") != null){
+		response.setContentType("text/html;charset=UTF-8");
+		out.println("Job Created !!! <br>");
+		out.println("<a href=\"EmployerLanding\">Home</a> <br>");
+		out.println("Create new Job <br>");
+		}
+	%>
+	<br>
+	<form action="JobServlet" method="post"> 																<!job servlet> 
 		Job Title: <input type="text" name="jobTitle" placeholder="jobTitle"> 
 		<br>
 		Company Name: <input type="text" name="companyName"> 
@@ -112,10 +120,6 @@
 		</div>
 	</form>
 
-	<p>
-		<a href="/topjobs/ShowJobServlet">Show Jobs
-	</p>
-	</a>
 
 </body>
 </html>

@@ -5,10 +5,15 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Expression;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.metamodel.Metamodel;
 
 import com.topjobs.domain.Job;
 import com.topjobs.persistence.PersistenceManager;
+
 
 
 public class JobDAO {
@@ -35,8 +40,28 @@ public class JobDAO {
 		em.close();
 		// PersistenceManager.INSTANCE.close();
 		return ls;
+	}
+	
+	
+	public List<Job> findJobByUsername(Job obj) {
+		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
+		em.getTransaction().begin();
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Job> cq = cb.createQuery(Job.class);
+		Root<Job> root = cq.from(Job.class);
+		cq.select(root);
+		
+		Metamodel m = em.getMetamodel();
+		EntityType<Job> Job_ = m.entity(Job.class);
+		Expression username_exp = root.get(Job_.getSingularAttribute("user_name"));
+		
+		Predicate p1 = cb.equal(username_exp, obj.getUser().getUserName());
 
-
+		
+		em.getTransaction().commit();
+		em.close();
+		// PersistenceManager.INSTANCE.close();
+		return null;
 	}
 
 }

@@ -17,6 +17,8 @@
 
 <a href="NewJob">Create a new JOB?</a>
 
+<a href="ShowJobServlet">Show list of jobs</a>
+
 
 
 </body>

@@ -14,6 +14,9 @@ public class JobService {
 		job.setJobName(obj.getJobName());
 		job.setJobTitle(obj.getJobTitle());
 		job.setJobDescription(obj.getJobDescription());
+		job.setUser(obj.getJobUser());
+		
+		System.out.println(job.getUser());
 		
 		JobDAO jDAO = new JobDAO();
 		jDAO.persist(job);
@@ -22,6 +25,12 @@ public class JobService {
 	public List<Job> getAllJobs() {
 		JobDAO jDAO=new JobDAO();
 		return jDAO.findAllJobs();
+	}
+	
+	public List<Job> getJobsByUsername(JobRequest obj){
+		
+		
+		return null;
 	}
 	
 }
