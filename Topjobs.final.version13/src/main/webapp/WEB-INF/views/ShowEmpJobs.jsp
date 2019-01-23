@@ -20,7 +20,7 @@
 <h1>Welcome </h1>
 <%= request.getRemoteUser() %>
 <h1>Jobs for you</h1>
-<h2><%=ls.size()%> Jobs</h2>
+<h2><%= ls.size()%> Jobs</h2>
 <table>
 
 <c:set var="jobList" value="<%=ls%>" />

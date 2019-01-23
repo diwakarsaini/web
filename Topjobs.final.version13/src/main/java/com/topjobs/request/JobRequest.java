@@ -1,13 +1,18 @@
 package com.topjobs.request;
 
-import com.topjobs.domain.User;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.topjobs.domain.Employer;
+import com.topjobs.domain.JobSeeker;
 
 public class JobRequest {
 
 	private String jobName;
 	private String jobTitle;
 	private String jobDescription;
-	private User jobUser;
+	private Employer employer;
+	private Set<JobSeeker> jobSeekers = new HashSet<>();
 	
 	public String getJobName() {
 		return jobName;
@@ -27,12 +32,20 @@ public class JobRequest {
 	public void setJobDescription(String jobDescription) {
 		this.jobDescription = jobDescription;
 	}
-	public User getJobUser() {
-		return jobUser;
+	public Employer getEmployer() {
+		return employer;
 	}
-	public void setJobUser(User jobUser) {
-		this.jobUser = jobUser;
+	public void setEmployer(Employer employer) {
+		this.employer = employer;
 	}
+	public Set<JobSeeker> getJobSeekers() {
+		return jobSeekers;
+	}
+	public void setJobSeekers(Set<JobSeeker> jobSeekers) {
+		this.jobSeekers = jobSeekers;
+	}
+	
+	
 	
 	
 	

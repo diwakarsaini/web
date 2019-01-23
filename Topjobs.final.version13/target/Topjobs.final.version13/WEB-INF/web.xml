@@ -4,18 +4,18 @@
   xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   xsi:schemaLocation="http://java.sun.com/xml/ns/javaee  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
   version="2.5">
-  
   <display-name>Archetype Created Web Application</display-name>
+  
   <servlet>
   <servlet-name>homepage</servlet-name>
   <jsp-file>/WEB-INF/views/Homepage.jsp</jsp-file>
   </servlet>
   
-  
   <servlet>
   	<servlet-name>RegisterServlet</servlet-name>
 	<servlet-class>com.topjobs.web.RegisterServlet</servlet-class>
   </servlet>
+  
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
   	<servlet-class>com.topjobs.web.LoginServlet</servlet-class>
@@ -45,6 +45,11 @@
   <servlet-name>JobSeekerLanding</servlet-name>
   <jsp-file>/WEB-INF/views/JobSeekerLanding.jsp</jsp-file>
   </servlet>
+ 
+  <servlet>
+  <servlet-name>AdminLanding</servlet-name>
+  <jsp-file>/WEB-INF/views/AdminLanding.jsp</jsp-file>
+  </servlet>
   
   <servlet>
   <servlet-name>NewJob</servlet-name>
@@ -66,35 +71,36 @@
   <jsp-file>/WEB-INF/views/ShowEmpJobs.jsp</jsp-file>
   </servlet>
   
-  <servlet-mapping>
-  <servlet-name>ShowEmpJobs</servlet-name>
-  <url-pattern>/ShowEmpJobs</url-pattern>
-  </servlet-mapping>
+  <servlet>
+  <servlet-name>registrationSuccessful</servlet-name>
+  <jsp-file>/WEB-INF/views/RegistrationSuccessful.jsp</jsp-file>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>ShowResume</servlet-name>
+  	<jsp-file>/WEB-INF/views/ShowResume.jsp</jsp-file>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<servlet-name>ShowResumeEmployerServlet</servlet-name>
+  	<servlet-class>com.topjobs.web.ShowResumeEmployerServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>ShowResumeJobSeekerServlet</display-name>
+  	<servlet-name>ShowResumeJobSeekerServlet</servlet-name>
+  	<servlet-class>com.topjobs.web.ShowResumeJobSeekerServlet</servlet-class>
+  </servlet>
+    
+  
+  
+  
+  
+  
   
    <servlet-mapping>
-  <servlet-name>NewJob</servlet-name>
-  <url-pattern>/NewJob</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-  <servlet-name>JobSeekerLanding</servlet-name>
-  <url-pattern>/JobSeekerLanding</url-pattern>
-  </servlet-mapping>
-  
-  
-  
-  <servlet-mapping>
-  <servlet-name>EmployerLanding</servlet-name>
-  <url-pattern>/EmployerLanding</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-  <servlet-name>Logout</servlet-name>
-  <url-pattern>/Logout</url-pattern>
-  </servlet-mapping>
-  
-  
-  <servlet-mapping>
   <servlet-name>homepage</servlet-name>
   <url-pattern>/Homepage</url-pattern>
   </servlet-mapping>
@@ -102,7 +108,9 @@
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
+  	<url-pattern>/yadada</url-pattern>
   </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
@@ -112,10 +120,35 @@
   <servlet-name>Login</servlet-name>
   <url-pattern>/Login</url-pattern>
   </servlet-mapping>
-  
+   
   <servlet-mapping>
   <servlet-name>LoginFailed</servlet-name>
   <url-pattern>/LoginFailed</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>Logout</servlet-name>
+  <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>EmployerLanding</servlet-name>
+  <url-pattern>/EmployerLanding</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet-mapping>
+  <servlet-name>JobSeekerLanding</servlet-name>
+  <url-pattern>/JobSeekerLanding</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>AdminLanding</servlet-name>
+  <url-pattern>/AdminLanding</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet-mapping>
+  <servlet-name>NewJob</servlet-name>
+  <url-pattern>/NewJob</url-pattern>
   </servlet-mapping>
   
   <servlet-mapping>
@@ -125,8 +158,36 @@
   
   <servlet-mapping>
   	<servlet-name>ShowJobServlet</servlet-name>
-  	<url-pattern>/ShowJobServlet</url-pattern>
+   	<url-pattern>/ShowJobServlet</url-pattern>
   </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>ShowEmpJobs</servlet-name>
+  <url-pattern>/ShowEmpJobs</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>registrationSuccessful</servlet-name>
+  <url-pattern>/RegistrationSuccessful</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ShowResume</servlet-name>
+  	<url-pattern>/ShowResume</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ShowResumeEmployerServlet</servlet-name>
+  	<url-pattern>/ShowResumeEmployerServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>ShowResumeJobSeekerServlet</servlet-name>
+  	<url-pattern>/ShowResumeJobSeekerServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
   
   
   <security-constraint>
@@ -148,13 +209,27 @@
 <web-resource-collection>
     <web-resource-name>JobSeeker</web-resource-name>
     <description>Matches JobSeeker pages</description>
-    <url-pattern>/job/*</url-pattern>
+    <url-pattern>/js/*</url-pattern>
    <url-pattern>/LoginServlet</url-pattern>
      <http-method>GET</http-method>  
      <http-method>POST</http-method>
   </web-resource-collection>
   <auth-constraint>
      <role-name>JobSeeker</role-name>
+  </auth-constraint>
+</security-constraint>
+
+<security-constraint>
+<web-resource-collection>
+    <web-resource-name>Admin</web-resource-name>
+    <description>Matches Admin pages</description>
+    <url-pattern>/admin/*</url-pattern>
+   <url-pattern>/LoginServlet</url-pattern>
+     <http-method>GET</http-method>  
+     <http-method>POST</http-method>
+  </web-resource-collection>
+  <auth-constraint>
+     <role-name>Admin</role-name>
   </auth-constraint>
 </security-constraint>
 
@@ -169,6 +244,7 @@
   
    <security-role> <role-name>Employer</role-name> </security-role>
   <security-role> <role-name>JobSeeker</role-name> </security-role>
+  <security-role> <role-name>Admin</role-name> </security-role>
   
 
   

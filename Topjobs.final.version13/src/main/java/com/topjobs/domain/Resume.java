@@ -23,10 +23,12 @@ public class Resume {
 	@SequenceGenerator(name = "res_Sequence", sequenceName = "RESUME_SEQ")
 	private Long resumeId;
 	
-	@OneToOne(cascade = {CascadeType.MERGE})
-	@JoinColumn(name= "resume_user_name", 
-	referencedColumnName = "user_name")
-	private User user;
+
+	
+//	@JoinColumn(name= "JobSeekerFK", 
+//	referencedColumnName = "user_name")
+	@OneToOne(cascade = CascadeType.ALL)
+	private JobSeeker jobSeeker;
 	
 	@Transient
 	private String email;
@@ -47,18 +49,21 @@ public class Resume {
 	@Column(columnDefinition="varchar(1000)")
 	private String resumeText;
 	
+	@Column
+	private long timesViewed;
 	
 	public Long getResumeId() {
 		return resumeId;
 	}
-	public void setResumeId(Long resumeId) {
-		this.resumeId = resumeId;
+	public void setResumeId(Long i) {
+		this.resumeId = i;
 	}
-	public User getUser() {
-		return user;
+	
+	public JobSeeker getJobSeeker() {
+		return jobSeeker;
 	}
-	public void setUser(User user) {
-		this.user = user;
+	public void setJobSeeker(JobSeeker jobSeeker) {
+		this.jobSeeker = jobSeeker;
 	}
 	public String getEmail() {
 		return email;
@@ -95,6 +100,18 @@ public class Resume {
 	}
 	public void setResumeText(String resumeText) {
 		this.resumeText = resumeText;
+	}
+	public Long getTimesViewed() {
+		return timesViewed;
+	}
+	public void setTimesViewed(Long timesViewed) {
+		this.timesViewed = timesViewed;
+	}
+	@Override
+	public String toString() {
+		return "Resume [resumeId=" + resumeId + ", user=" + jobSeeker + ", email=" + email + ", contactNumber="
+				+ contactNumber + ", address=" + address + ", skills=" + skills + ", jobSeekerMarks=" + jobSeekerMarks
+				+ ", resumeText=" + resumeText + ", timesViewed=" + timesViewed + "]";
 	}
 	
 	

@@ -8,8 +8,7 @@
 </head>
 <body>
 <p>YOU ARE AN EMPLOYER! </p>
-<%= session.getAttribute("test") %>
-<%= session.getAttribute("remoteUser") %>
+<%=request.getRemoteUser() %>
 <br>
 <a href="Logout">LogOut</a>
 <br>
@@ -19,7 +18,11 @@
 
 <a href="ShowJobServlet">Show list of jobs</a>
 
+<form action="ShowResumeEmployerServlet">
+	<input type="submit" value="Show Resume">
+</form>
 
+<a href="PurchaseLogin">Purchase Additional Login</a>
 
 </body>
 </html>

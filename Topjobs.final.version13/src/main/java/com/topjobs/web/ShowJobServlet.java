@@ -32,9 +32,9 @@ public class ShowJobServlet extends HttpServlet {
 		if(request.isUserInRole("Employer")) {
 			List<Job> empJobs = new ArrayList<Job>();
 			for(Job obj:jobList) {
-				if(obj.getUser()!= null) {
-					if(request.getRemoteUser().equals(obj.getUser().getUserName()))
-					{	System.out.println(obj.getUser().getUserName());
+				if(obj.getEmployer()!= null) {
+					if(request.getRemoteUser().equals(obj.getEmployer().getUserName()))
+					{	System.out.println(obj.getEmployer().getUserName());
 						empJobs.add(obj);
 					}
 				}

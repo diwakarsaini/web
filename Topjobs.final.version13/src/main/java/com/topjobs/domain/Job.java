@@ -1,7 +1,9 @@
 package com.topjobs.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -33,28 +37,47 @@ public class Job {
 	private String jobDescription;
 	
 	
-	@OneToOne(cascade = {CascadeType.MERGE})
-	@JoinColumn(name= "user_name", 
-	referencedColumnName = "user_name")
-	private User user;
+	@OneToOne(cascade = {CascadeType.ALL})
+//	@JoinColumn(name= "user_name", 
+//	referencedColumnName = "user_name")
+	private Employer employer;
+	
+	@ManyToMany(cascade=CascadeType.ALL)
+	private Set<JobSeeker> jobSeekers = new HashSet<>();
+	
 		
-	@OneToMany(mappedBy = "job",cascade = {CascadeType.ALL})
-	private List<JobSkillLocation> jskill = new ArrayList<JobSkillLocation>();
  
-	public List<JobSkillLocation> getJskill() {
-		return jskill;
+	@ManyToMany(cascade=CascadeType.ALL)
+//    @JoinTable(
+//        name = "Job_Skill", 
+//        joinColumns = { @JoinColumn(name = "jobId") }, 
+//        inverseJoinColumns = { @JoinColumn(name = "jobSkillId") }
+//    )
+	private Set<JobSkill> jobSkill = new HashSet<>();
+	
+
+	public Set<JobSkill> getJobSkill() {
+		return jobSkill;
 	}
 
-	public void setJskill(List<JobSkillLocation> jskill) {
-		this.jskill = jskill;
+	public void setJobSkill(Set<JobSkill> jobSkill) {
+		this.jobSkill = jobSkill;
 	}
 
-	public User getUser() {
-		return user;
+	public Employer getEmployer() {
+		return employer;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setEmployer(Employer employer) {
+		this.employer = employer;
+	}
+
+	public Set<JobSeeker> getJobSeekers() {
+		return jobSeekers;
+	}
+
+	public void setJobSeekers(Set<JobSeeker> jobSeekers) {
+		this.jobSeekers = jobSeekers;
 	}
 
 	public Long getJobId() {
@@ -88,6 +111,7 @@ public class Job {
 	public void setJobDescription(String jobDescription) {
 		this.jobDescription = jobDescription;
 	}
+
 
 	
 

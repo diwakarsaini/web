@@ -14,10 +14,8 @@ public class JobService {
 		job.setJobName(obj.getJobName());
 		job.setJobTitle(obj.getJobTitle());
 		job.setJobDescription(obj.getJobDescription());
-		job.setUser(obj.getJobUser());
-		
-		System.out.println(job.getUser());
-		
+		job.setEmployer(obj.getEmployer());	
+		System.out.println(job.getEmployer());
 		JobDAO jDAO = new JobDAO();
 		jDAO.persist(job);
 	}

@@ -4,9 +4,13 @@
 	
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 	<class>com.topjobs.domain.Job</class>
-	<class>com.topjobs.domain.JobSkillLocation</class>
 	<class>com.topjobs.domain.User</class>
 	<class>com.topjobs.domain.Resume</class>
+	<class>com.topjobs.domain.JobSkill</class>
+	<class>com.topjobs.domain.Employer</class>
+	<class>com.topjobs.domain.UserRole</class>
+	<class>com.topjobs.domain.JobSeeker</class>
+	<class>com.topjobs.domain.Admin</class>
 	
 	
 	<properties>

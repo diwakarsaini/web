@@ -55,7 +55,7 @@ public class JobDAO {
 		EntityType<Job> Job_ = m.entity(Job.class);
 		Expression username_exp = root.get(Job_.getSingularAttribute("user_name"));
 		
-		Predicate p1 = cb.equal(username_exp, obj.getUser().getUserName());
+		Predicate p1 = cb.equal(username_exp, obj.getEmployer().getUserName());
 
 		
 		em.getTransaction().commit();

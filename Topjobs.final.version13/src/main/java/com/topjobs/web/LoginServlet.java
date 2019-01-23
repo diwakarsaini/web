@@ -35,20 +35,22 @@ public class LoginServlet extends HttpServlet {
 		String remoteUser = request.getRemoteUser();		// gives username of the user
 		
 		
-		session.setAttribute("test", "helloooooo");			
-		session.setAttribute("remoteUser", remoteUser);		
 		
 		if(request.isUserInRole("JobSeeker"))
 		{	
-			RequestDispatcher rd=request.getRequestDispatcher("/JobSeekerLanding");
+			RequestDispatcher rd=request.getRequestDispatcher("JobSeekerLanding");
 			rd.forward(request, response); 
 		}
 		if(request.isUserInRole("Employer")) 
 		{
-			RequestDispatcher rd=request.getRequestDispatcher("/EmployerLanding");
+			RequestDispatcher rd=request.getRequestDispatcher("EmployerLanding");
 			rd.forward(request, response);
 		}
-		
+		if(request.isUserInRole("Admin")) 
+		{
+			RequestDispatcher rd=request.getRequestDispatcher("AdminLanding");
+			rd.forward(request, response);
+		}
 		
 	}
 

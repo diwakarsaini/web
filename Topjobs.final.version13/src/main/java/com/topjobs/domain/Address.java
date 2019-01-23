@@ -30,6 +30,10 @@ public class Address {
 	public void setPin(int pin) {
 		this.pin = pin;
 	}
+	@Override
+	public String toString() {
+		return "Address [addressLine=" + addressLine + ", city=" + city + ", state=" + state + ", pin=" + pin + "]";
+	}
 	
 	
 }
