@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,7 +19,7 @@ public class UserRole {
 
 
 	
-	@OneToMany
+	@OneToMany(fetch=FetchType.EAGER)
 	private Set<User> user = new HashSet<>();
 	
 	@Id

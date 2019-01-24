@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.topjobs.domain.Address;
 import com.topjobs.domain.JobSeeker;
+import com.topjobs.domain.JobSeeker;
 import com.topjobs.domain.JobSeekerMarks;
 import com.topjobs.domain.Resume;
 import com.topjobs.domain.User;
@@ -33,20 +34,21 @@ class ResumeTest {
 void resumeInsert() throws JsonProcessingException {
 		Resume rs = new Resume();
 		
-		JobSeeker js = new JobSeeker();
+		JobSeeker js =jobSeekerUsername("b99");
+		
+		
+		
 
-		js.setUserName("d99");
-//		js.setUserPass("p2");
-//		rs.setResumeId(352L);
+		rs.setResumeId(902L);
 		rs.setJobSeeker(js);;
-		rs.setEmail("diwakar94@gmail.com");
+		rs.setEmail("diwakar@gmail.com");
 		rs.setContactNumber("8447849901");
 		
 		Address addr = new Address();
 		addr.setAddressLine("3951. Ahiran Street");
 		addr.setCity("Delhi");
 		addr.setState("Delhi");
-		addr.setPin(110006);
+		addr.setPin("110006");
 		
 		rs.setAddress(addr);
 		
@@ -121,10 +123,54 @@ void resumeInsert() throws JsonProcessingException {
 		em.merge(dataObj);
 		em.getTransaction().commit();
 		em.close();
-		
-		
-		
-		
 	}
 
+	
+	
+	
+//	JobSeeker findJobSeekerByUserName(String name) {
+//		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
+//		em.getTransaction().begin();
+//		JobSeeker js = em.find(JobSeeker.class, name);
+//		
+//		em.getTransaction().commit();
+//		em.close();
+//		// PersistenceManager.INSTANCE.close();
+//		return js;
+//	}
+	public  JobSeeker jobSeekerUsername(String name) {
+		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
+		em.getTransaction().begin();
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<JobSeeker> cq = cb.createQuery(JobSeeker.class);
+		Root<JobSeeker> root = cq.from(JobSeeker.class);
+		cq.select(root);
+		
+		Metamodel m = em.getMetamodel();
+		EntityType<JobSeeker> JsEntity = m.entity(JobSeeker.class);
+		Expression username_exp = root.get(JsEntity.getSingularAttribute("userName"));
+		
+		Predicate p1 = cb.equal(username_exp, name);
+		cq.where(p1);
+		
+		JobSeeker js = em.createQuery(cq).getSingleResult();
+		em.getTransaction().commit();
+		em.close();
+		// PersistenceManager.INSTANCE.close();
+		return js;
+	}
+	
+	@Test
+	public void jobSeekerUsernameFind() {
+		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
+		em.getTransaction().begin();
+		JobSeeker js = new JobSeeker();
+		js = em.find(JobSeeker.class, "b99");
+		System.out.println(js);
+		em.getTransaction().commit();
+		em.close();
+		// PersistenceManager.INSTANCE.close();
+	}
+	
+	
 }

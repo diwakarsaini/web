@@ -8,7 +8,8 @@
 </head>
 <body>
 <h1>Purchase additional Logins</h1>
-<h6>Note: Get Discount of <%=getServletContext().getInitParameter("discount") %> on service fee if you purchase 5 or more Logins</h6>
+<h2>One Login is valid for 30 Days </h2>
+<h6>Note: Get Discount of <%=getServletContext().getInitParameter("discount") %> on fees if you purchase 5 or more Logins</h6>
 
 <form action="PurchaseLoginServlet" method="post">
 No of Logins: <input type="number" name="number" required>

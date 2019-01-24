@@ -5,6 +5,7 @@ import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -28,7 +29,7 @@ public class User {
 	private String fName;
 	private String lName;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
 //	@JoinColumn(name="userRoleFK")
 	private UserRole userRole;
 

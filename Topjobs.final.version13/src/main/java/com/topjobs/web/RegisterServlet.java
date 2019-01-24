@@ -52,7 +52,6 @@ public class RegisterServlet extends HttpServlet {
 				emp.setUserName(userName);
 				emp.setUserPass(pass);
 				emp.setIsActive(true);
-				emp.setIsSupervisor(true);
 				emp.setUserRole(ur);
 				registerUser(emp);
 
@@ -65,51 +64,51 @@ public class RegisterServlet extends HttpServlet {
 				js.setUserName(userName);
 				js.setUserPass(pass);
 				js.setUserRole(ur);
-				
-//				Resume rs = new Resume();
-//				
-//				
-////				rs.setResumeId(852L);
-////				rs.setJobSeeker(js);
-//				rs.setEmail("diwakar94@gmail.com");
-//				rs.setContactNumber("8447849901");
-//				Address addr = new Address();
-//				addr.setAddressLine("3951. Ahiran Street");
-//				addr.setCity("Delhi");
-//				addr.setState("Delhi");
-//				addr.setPin(110006);
-//				
-//				rs.setAddress(addr);
-//				
-//				List<String> ls = new ArrayList<>();
-//				ls.add("java");
-//				ls.add("c++");
-//				ls.add("html");
-//				ls.add("hiberate");
-//				
-//				rs.setSkills(ls);
-//				
-//				JobSeekerMarks jsmarks = new JobSeekerMarks();
-//				jsmarks.setMarks10(98.7);
-//				jsmarks.setMarks12(99.5);
-//				jsmarks.setGradMarks(99.99);
-//				
-//				rs.setJobSeekerMarks(jsmarks);
-//				
-//				System.out.println(rs);
-//				
-//				ObjectMapper om = new ObjectMapper();
-//				
-//				String rStr = om.writeValueAsString(rs);
-//				System.out.println(rStr);
-//				rs.setResumeText(rStr);
-//				rs.setJobSeeker(js);
-//				js.setResume(rs);
-				
-				
-				
-				
-				
+
+				//				Resume rs = new Resume();
+				//				
+				//				
+				////				rs.setResumeId(852L);
+				////				rs.setJobSeeker(js);
+				//				rs.setEmail("diwakar94@gmail.com");
+				//				rs.setContactNumber("8447849901");
+				//				Address addr = new Address();
+				//				addr.setAddressLine("3951. Ahiran Street");
+				//				addr.setCity("Delhi");
+				//				addr.setState("Delhi");
+				//				addr.setPin(110006);
+				//				
+				//				rs.setAddress(addr);
+				//				
+				//				List<String> ls = new ArrayList<>();
+				//				ls.add("java");
+				//				ls.add("c++");
+				//				ls.add("html");
+				//				ls.add("hiberate");
+				//				
+				//				rs.setSkills(ls);
+				//				
+				//				JobSeekerMarks jsmarks = new JobSeekerMarks();
+				//				jsmarks.setMarks10(98.7);
+				//				jsmarks.setMarks12(99.5);
+				//				jsmarks.setGradMarks(99.99);
+				//				
+				//				rs.setJobSeekerMarks(jsmarks);
+				//				
+				//				System.out.println(rs);
+				//				
+				//				ObjectMapper om = new ObjectMapper();
+				//				
+				//				String rStr = om.writeValueAsString(rs);
+				//				System.out.println(rStr);
+				//				rs.setResumeText(rStr);
+				//				rs.setJobSeeker(js);
+				//				js.setResume(rs);
+
+
+
+
+
 				registerUser(js);
 			} 
 
@@ -122,14 +121,15 @@ public class RegisterServlet extends HttpServlet {
 				admin.setUserRole(ur);
 				registerUser(admin);
 			} 
-			
+
 		}
 		catch (RegistrationFailedException e) {
 			request.setAttribute("exception", e.getMessage());
-			request.getRequestDispatcher("Homepage").forward(request, response);
+//			request.getRequestDispatcher("Homepage").forward(request, response);
 		}
 		
-		request.getRequestDispatcher("/RegistrationSuccessful").forward(request, response);
+			request.getRequestDispatcher("/RegistrationSuccessful").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -2,6 +2,7 @@ package com.topjobs.domain;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -10,7 +11,7 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @PrimaryKeyJoinColumn(name="user_name")
 public class JobSeeker extends User {
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 //	@JoinColumn(name="resumeFk")
 	private Resume resume;
 
@@ -22,12 +23,5 @@ public class JobSeeker extends User {
 		this.resume = resume;
 	}
 
-	@Override
-	public String toString() {
-		return "JobSeeker [resume=" + resume + ", username=" + getUserName() + ", password=" + getUserPass()
-				+ ", userRole=" + getUserRole() + "]";
-	}
-	
-	
 	
 }

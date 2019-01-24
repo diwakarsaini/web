@@ -28,6 +28,7 @@ public class Resume {
 //	@JoinColumn(name= "JobSeekerFK", 
 //	referencedColumnName = "user_name")
 	@OneToOne(cascade = CascadeType.ALL)
+	@JsonIgnore
 	private JobSeeker jobSeeker;
 	
 	@Transient
@@ -107,13 +108,5 @@ public class Resume {
 	public void setTimesViewed(Long timesViewed) {
 		this.timesViewed = timesViewed;
 	}
-	@Override
-	public String toString() {
-		return "Resume [resumeId=" + resumeId + ", user=" + jobSeeker + ", email=" + email + ", contactNumber="
-				+ contactNumber + ", address=" + address + ", skills=" + skills + ", jobSeekerMarks=" + jobSeekerMarks
-				+ ", resumeText=" + resumeText + ", timesViewed=" + timesViewed + "]";
-	}
-	
-	
 	
 }

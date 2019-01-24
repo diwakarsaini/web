@@ -98,7 +98,16 @@
 		<servlet-name>PurchaseLogin</servlet-name>
 		<servlet-class>/WEB-INF/views/PurchaseLogin.jsp</servlet-class>
 	</servlet>
+	<servlet>
+		<display-name>ResumeServlet</display-name>
+		<servlet-name>ResumeServlet</servlet-name>
+		<servlet-class>com.topjobs.web.ResumeServlet</servlet-class>
+	</servlet>
 
+	<servlet>
+		<servlet-name>CreateResume</servlet-name>
+		<jsp-file>/WEB-INF/views/CreateResume.jsp</jsp-file>
+	</servlet>
 
 
 
@@ -193,7 +202,15 @@
 		<servlet-name>PurchaseLogin</servlet-name>
 		<url-pattern>/PurchaseLogin</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ResumeServlet</servlet-name>
+		<url-pattern>/ResumeServlet</url-pattern>
+	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>CreateResume</servlet-name>
+		<url-pattern>/CreateResume</url-pattern>
+	</servlet-mapping>
 
 
 	<security-constraint>

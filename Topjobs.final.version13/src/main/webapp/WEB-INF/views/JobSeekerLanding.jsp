@@ -10,7 +10,7 @@
 <p>YOU ARE A JOB SEEKER! </p> <a href="Logout">LogOut</a>
 
 <p>Upload resume:</p>
-<a href="Resume">Create New Resume</a>
+<a href="CreateResume">Create New Resume</a>
 <a href="ShowJobServlet">Show Jobs</a>
 <a href="ShowResumeJobSeekerServlet">Show Resume</a>
 </body>

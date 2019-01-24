@@ -28,7 +28,6 @@ class RegisterTest {
 		Employer emp = new Employer();
 		emp.setUserName("diwakar1@gmail.com");
 		emp.setUserPass("diwakar1");
-		emp.setIsSupervisor(true);
 		emp.setIsActive(true);
 		emp.setfName("Diwakar");
 		emp.setlName("Saini");
