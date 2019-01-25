@@ -10,6 +10,7 @@ public class ResumeRequest {
 	
 
 		private Long resumeId;
+		private String name;
 		private JobSeeker jobSeeker;
 		private String email;
 		private String contactNumber;
@@ -23,6 +24,12 @@ public class ResumeRequest {
 		}
 		public void setResumeId(Long resumeId) {
 			this.resumeId = resumeId;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
 		}
 		public JobSeeker getJobSeeker() {
 			return jobSeeker;
@@ -72,13 +79,7 @@ public class ResumeRequest {
 		public void setTimesViewed(long timesViewed) {
 			this.timesViewed = timesViewed;
 		}
-		@Override
-		public String toString() {
-			return "ResumeRequest [resumeId=" + resumeId + ", jobSeeker=" + jobSeeker + ", email=" + email
-					+ ", contactNumber=" + contactNumber + ", address=" + address + ", skills=" + skills
-					+ ", jobSeekerMarks=" + jobSeekerMarks + ", resumeText=" + resumeText + ", timesViewed="
-					+ timesViewed + "]";
-		}
+		
 
 		
 

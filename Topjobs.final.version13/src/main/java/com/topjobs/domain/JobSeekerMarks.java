@@ -25,7 +25,7 @@ public class JobSeekerMarks {
 	}
 	@Override
 	public String toString() {
-		return "JobSeekerMarks [marks10=" + marks10 + ", marks12=" + marks12 + ", gradMarks=" + gradMarks + "]";
+		return "marks10=" + marks10 + ", marks12=" + marks12 + ", gradMarks=" + gradMarks;
 	}
 	
 	

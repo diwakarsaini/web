@@ -19,6 +19,8 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.topjobs.dao.JobSeekerDAO;
+import com.topjobs.dao.ResumeDAO;
 import com.topjobs.domain.Address;
 import com.topjobs.domain.JobSeeker;
 import com.topjobs.domain.JobSeeker;
@@ -97,10 +99,10 @@ void resumeInsert() throws JsonProcessingException {
 		
 		Metamodel m = em.getMetamodel();
 		EntityType<Resume> rEntity = m.entity(Resume.class);
-		Expression resume_exp = root.get(rEntity.getSingularAttribute("user"));
+		Expression resume_exp = root.get(rEntity.getSingularAttribute("jobSeeker"));
 		
-		User user = new User();
-		user.setUserName("d1");
+		JobSeeker user = new JobSeeker();
+		user.setUserName("d9");
 		
 		Predicate p1 = cb.equal(resume_exp,user);
 		
@@ -171,6 +173,23 @@ void resumeInsert() throws JsonProcessingException {
 		em.close();
 		// PersistenceManager.INSTANCE.close();
 	}
+	
+	@Test
+	public void jobSeekerFindResume1() {
+		ResumeDAO rDAO = new ResumeDAO();
+		JobSeekerDAO jDAO = new JobSeekerDAO();
+		JobSeeker js = new JobSeeker();
+		js.setUserName("r99");
+		
+		jDAO.jobSeekerUsernameFind(js);
+		System.out.println(js);
+		
+		
+	}
+	
+	
+	
+	
 	
 	
 }

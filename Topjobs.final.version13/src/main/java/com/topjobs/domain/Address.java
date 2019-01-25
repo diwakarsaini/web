@@ -32,7 +32,7 @@ public class Address {
 	}
 	@Override
 	public String toString() {
-		return "Address [addressLine=" + addressLine + ", city=" + city + ", state=" + state + ", pin=" + pin + "]";
+		return addressLine + " " + city + " " + state + " " + pin;
 	}
 	
 	

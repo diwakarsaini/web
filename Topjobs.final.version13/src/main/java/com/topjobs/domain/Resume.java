@@ -32,6 +32,9 @@ public class Resume {
 	private JobSeeker jobSeeker;
 	
 	@Transient
+	private String name;
+	
+	@Transient
 	private String email;
 	
 	@Transient
@@ -60,6 +63,12 @@ public class Resume {
 		this.resumeId = i;
 	}
 	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public JobSeeker getJobSeeker() {
 		return jobSeeker;
 	}
