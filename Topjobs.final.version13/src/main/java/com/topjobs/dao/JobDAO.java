@@ -63,5 +63,14 @@ public class JobDAO {
 		// PersistenceManager.INSTANCE.close();
 		return null;
 	}
+	
+	public Job findJobByID(Job obj) {
+		EntityManager em= PersistenceManager.INSTANCE.getEntityManager();
+		em.getTransaction().begin();
+		obj = em.find(Job.class, obj.getJobId());
+		em.getTransaction().commit();
+		em.close();
+		return obj;
+	}
 
 }

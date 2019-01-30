@@ -11,6 +11,7 @@
 	<class>com.topjobs.domain.UserRole</class>
 	<class>com.topjobs.domain.JobSeeker</class>
 	<class>com.topjobs.domain.Admin</class>
+	<class>com.topjobs.domain.JobSeekerEvents</class>
 	
 	
 	<properties>

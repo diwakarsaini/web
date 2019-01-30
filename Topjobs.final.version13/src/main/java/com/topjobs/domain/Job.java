@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,32 +38,20 @@ public class Job {
 	private String jobDescription;
 	
 	
-	@OneToOne(cascade = {CascadeType.ALL})
+	@OneToOne
 //	@JoinColumn(name= "user_name", 
 //	referencedColumnName = "user_name")
 	private Employer employer;
-	
-	@ManyToMany(cascade=CascadeType.ALL)
-	private Set<JobSeeker> jobSeekers = new HashSet<>();
-	
-		
+			
  
-	@ManyToMany(cascade=CascadeType.ALL)
+//	@ManyToMany
 //    @JoinTable(
 //        name = "Job_Skill", 
 //        joinColumns = { @JoinColumn(name = "jobId") }, 
 //        inverseJoinColumns = { @JoinColumn(name = "jobSkillId") }
 //    )
-	private Set<JobSkill> jobSkill = new HashSet<>();
+//	private Set<JobSkill> jobSkill = new HashSet<>();
 	
-
-	public Set<JobSkill> getJobSkill() {
-		return jobSkill;
-	}
-
-	public void setJobSkill(Set<JobSkill> jobSkill) {
-		this.jobSkill = jobSkill;
-	}
 
 	public Employer getEmployer() {
 		return employer;
@@ -72,13 +61,7 @@ public class Job {
 		this.employer = employer;
 	}
 
-	public Set<JobSeeker> getJobSeekers() {
-		return jobSeekers;
-	}
 
-	public void setJobSeekers(Set<JobSeeker> jobSeekers) {
-		this.jobSeekers = jobSeekers;
-	}
 
 	public Long getJobId() {
 		return jobId;
@@ -112,7 +95,13 @@ public class Job {
 		this.jobDescription = jobDescription;
 	}
 
+	@Override
+	public String toString() {
+		return "Job [jobId=" + jobId + ", jobName=" + jobName + ", jobTitle=" + jobTitle + ", jobDescription="
+				+ jobDescription + ", employer=" + employer + "]";
+	}
 
+	
 	
 
 	

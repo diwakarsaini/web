@@ -11,7 +11,7 @@
 session.invalidate();
 %>
 You have been logged out.
-<a href="Homepage">Go to homepage</a>
+<a href="LoginServlet">Go to homepage</a>
 
 </body>
 </html>

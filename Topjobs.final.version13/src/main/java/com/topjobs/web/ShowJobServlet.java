@@ -32,16 +32,16 @@ public class ShowJobServlet extends HttpServlet {
 		if(request.isUserInRole("Employer")) {
 			List<Job> empJobs = new ArrayList<Job>();
 			for(Job obj:jobList) {
-				if(obj.getEmployer()!= null) {
+//				if(obj.getEmployer()!= null) {
 					if(request.getRemoteUser().equals(obj.getEmployer().getUserName()))
-					{	System.out.println(obj.getEmployer().getUserName());
+//					{	System.out.println(obj.getEmployer().getUserName());
 						empJobs.add(obj);
-					}
-				}
+//					}
+//				}
 			}
-			if(empJobs.size()==0)
-				request.setAttribute("JobList", jobList);
-			else
+//			if(empJobs.size()==0)
+//				request.setAttribute("JobList", jobList);
+//			else
 				request.setAttribute("JobList", empJobs);
 				
 			
@@ -49,12 +49,12 @@ public class ShowJobServlet extends HttpServlet {
 		}
 		
 		if(request.isUserInRole("JobSeeker")) {
+			
 			request.setAttribute("JobList", jobList);
-			request.getRequestDispatcher("ShowEmpJobs").forward(request, response);
+			request.getRequestDispatcher("ShowJSJobs").forward(request, response);
 		}
 		
 		
-	
 	}
 
 	/**

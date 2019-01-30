@@ -7,11 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>YOU ARE A JOB SEEKER! </p> <a href="Logout">LogOut</a>
-
-<p>Upload resume:</p>
-<a href="CreateResume">Create New Resume</a>
-<a href="ShowJobServlet">Show Jobs</a>
+<p>YOU ARE A JOB SEEKER! </p> 
+<br>
+<a href="/topjobs/logout">LogOut</a>
+<br>
+<a href="/topjobs/job/CreateResume">Create New Resume</a>
+<br>
+<a href="/topjobs/job/ShowJobServlet">Show Jobs</a>
+<br>
 <a href="ShowResumeJobSeekerServlet">Show Resume</a>
+<br>
 </body>
 </html>

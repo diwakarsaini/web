@@ -117,5 +117,14 @@ public class Resume {
 	public void setTimesViewed(Long timesViewed) {
 		this.timesViewed = timesViewed;
 	}
+	@Override
+	public String toString() {
+		return "Resume [resumeId=" + resumeId + ", jobSeeker=" + jobSeeker + ", name=" + name + ", email=" + email
+				+ ", contactNumber=" + contactNumber + ", address=" + address + ", skills=" + skills
+				+ ", jobSeekerMarks=" + jobSeekerMarks + ", resumeText=" + resumeText + ", timesViewed=" + timesViewed
+				+ "]";
+	}
+	
+	
 	
 }

@@ -35,11 +35,7 @@ class ResumeTest {
 	@Test
 void resumeInsert() throws JsonProcessingException {
 		Resume rs = new Resume();
-		
 		JobSeeker js =jobSeekerUsername("b99");
-		
-		
-		
 
 		rs.setResumeId(902L);
 		rs.setJobSeeker(js);;
@@ -51,7 +47,6 @@ void resumeInsert() throws JsonProcessingException {
 		addr.setCity("Delhi");
 		addr.setState("Delhi");
 		addr.setPin("110006");
-		
 		rs.setAddress(addr);
 		
 		List<String> ls = new ArrayList<>();
@@ -59,28 +54,23 @@ void resumeInsert() throws JsonProcessingException {
 		ls.add("c++");
 		ls.add("html");
 		ls.add("hiberate");
-		
 		rs.setSkills(ls);
 		
 		JobSeekerMarks jsmarks = new JobSeekerMarks();
 		jsmarks.setMarks10(98.7);
 		jsmarks.setMarks12(99.5);
 		jsmarks.setGradMarks(99.99);
-		
 		rs.setJobSeekerMarks(jsmarks);
 		System.out.println(rs);
 		
 		ObjectMapper om = new ObjectMapper();
-		
 		String rStr = om.writeValueAsString(rs);
 		System.out.println(rStr);
 		rs.setResumeText(rStr);
-		
 		js.setResume(rs);
 
 		EntityManager em = PersistenceManager.INSTANCE.getEntityManager();
 		em.getTransaction().begin();
-		
 		em.merge(rs);
 		em.getTransaction().commit();
 		em.close();
@@ -187,9 +177,28 @@ void resumeInsert() throws JsonProcessingException {
 		
 	}
 	
+	@Test
+	public void viewresumeEmp() {
+		ResumeDAO rDAO = new ResumeDAO();
+		JobSeeker js = new JobSeeker();
+		js.setUserName("d9");
+		Resume res = rDAO.viewResumeEmployer(js);
+		System.out.println(res);
 	
+	}
 	
+	@Test
+	public void viewresumeEmp1() {
+		JobSeeker js = new JobSeeker();
+		js.setUserName("d2");
+		js.setResumeCreated(false);
+		EntityManager em= PersistenceManager.INSTANCE.getEntityManager();
+		em.getTransaction().begin();
+		em.merge(js);
+		em.getTransaction().commit();
+		em.close();
 	
+	}
 	
 	
 }

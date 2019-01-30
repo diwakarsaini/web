@@ -70,6 +70,11 @@
 		<servlet-name>ShowEmpJobs</servlet-name>
 		<jsp-file>/WEB-INF/views/ShowEmpJobs.jsp</jsp-file>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>ShowJSJobs</servlet-name>
+		<jsp-file>/WEB-INF/views/ShowJSJobs.jsp</jsp-file>
+	</servlet>
 
 	<servlet>
 		<servlet-name>registrationSuccessful</servlet-name>
@@ -98,6 +103,7 @@
 		<servlet-name>PurchaseLogin</servlet-name>
 		<servlet-class>/WEB-INF/views/PurchaseLogin.jsp</servlet-class>
 	</servlet>
+	
 	<servlet>
 		<display-name>ResumeServlet</display-name>
 		<servlet-name>ResumeServlet</servlet-name>
@@ -109,7 +115,21 @@
 		<jsp-file>/WEB-INF/views/CreateResume.jsp</jsp-file>
 	</servlet>
 
-
+	<servlet>
+		<display-name>ApplyJobServlet</display-name>
+		<servlet-name>ApplyJobServlet</servlet-name>
+		<servlet-class>com.topjobs.web.ApplyJobServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>ShowThisJobServlet</display-name>
+		<servlet-name>ShowThisJobServlet</servlet-name>
+		<servlet-class>com.topjobs.web.ShowThisJobServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ShowThisJob</servlet-name>
+		<jsp-file>/WEB-INF/views/ShowThisJob.jsp</jsp-file>
+	</servlet>
 
 
 	<servlet-mapping>
@@ -179,6 +199,11 @@
 	</servlet-mapping>
 
 	<servlet-mapping>
+		<servlet-name>ShowJSJobs</servlet-name>
+		<url-pattern>/ShowJSJobs</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
 		<servlet-name>registrationSuccessful</servlet-name>
 		<url-pattern>/RegistrationSuccessful</url-pattern>
 	</servlet-mapping>
@@ -202,6 +227,7 @@
 		<servlet-name>PurchaseLogin</servlet-name>
 		<url-pattern>/PurchaseLogin</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>ResumeServlet</servlet-name>
 		<url-pattern>/ResumeServlet</url-pattern>
@@ -212,6 +238,20 @@
 		<url-pattern>/CreateResume</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>ApplyJobServlet</servlet-name>
+		<url-pattern>/ApplyJobServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ShowThisJobServlet</servlet-name>
+		<url-pattern>/ShowThisJobServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>ShowThisJob</servlet-name>
+		<url-pattern>/ShowThisJob</url-pattern>
+	</servlet-mapping>
 
 	<security-constraint>
 		<web-resource-collection>

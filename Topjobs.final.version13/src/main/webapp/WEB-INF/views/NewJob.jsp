@@ -15,7 +15,7 @@
 		}
 	%>
 	<br>
-	<form action="JobServlet" method="get"> 																<!job servlet> 
+	<form action="JobServlet" method="post"> 																<!job servlet> 
 		Job Title: <input type="text" name="jobTitle" placeholder="jobTitle"> 
 		<br>
 		Company Name: <input type="text" name="companyName"> 

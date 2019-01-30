@@ -8,18 +8,9 @@
 </head>
 <body>
 
-
-
-
-
-
-
-
-
-
 <h2> Lets Make Your Resume Now</h2>
 
-<p><%=request.getRemoteUser() %>
+<p>Hello <%=request.getRemoteUser() %>
 
 <form action="ResumeServlet" method="post">
       Name:
